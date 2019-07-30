@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.4.5.js"></script>
+    <title>Hello World</title>
+</head>
+
+<body>
+    
+    <div data-role="page" id="home">
+        <div data-role="header"><h1>My Contacts</h1></div>
+        <div data-role="content">
+                <p><a class="ui-btn" href="#add" data-icon="plus">Add New</a></p>
+            <ul data-role="listview" id="contactListLi">
+                <li><a href="#">Empty</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="user">My Contacts</a></li>
+                    <li><a href="#phonebook" data-icon="plus">Phonebook</a></li>
+                    <li><a href="#diary" data-icon="plus">Diary</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div> 
+    
+    <div data-role="page" id="phonebook">
+        <div data-role="header"><h1>Phonebook</h1></div>
+        <div data-role="content">
+            <ul data-role="listview" id="phoneContactsListLi">
+                <li><a href="#">Empty</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="user">My Contacts</a></li>
+                    <li><a href="#phonebook" data-icon="plus">Phonebook</a></li>
+                    <li><a href="#diary" data-icon="plus">Diary</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div> 
+
+    <div data-role="page" id="add">
+        <div data-role="header"><h1>Add New Contact</h1></div>
+        <div data-role="content">
+            <div class="myForm">
+                <label>Name</label>
+                <input type="text" id="contactName" />
+                <label>Email</label>
+                <input type="email" id="contactEmail" />
+                <button id="saveNewContact">Save</button>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="user">My Contacts</a></li>
+                    <li><a href="#phonebook" data-icon="plus">Phonebook</a></li>
+                    <li><a href="#diary" data-icon="plus">Diary</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div> 
+
+    <div data-role="page" id="editContactPage">
+        <div data-role="header"><h1>Edit Contact</h1></div>
+        <div data-role="content">
+            <div class="myForm">
+                <input type="hidden" id="editContactId">
+                <label>Name</label>
+                <input type="text" id="editContactName" />
+                <label>Email</label>
+                <input type="email" id="editContactEmail" />
+                <button id="saveEditContact">Save</button>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="user">My Contacts</a></li>
+                    <li><a href="#phonebook" data-icon="plus">Phonebook</a></li>
+                    <li><a href="#diary" data-icon="plus">Diary</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div data-role="page" id="diary">
+            <div data-role="header"><h1>Diary</h1></div>
+            <div data-role="content">
+                <div class="myForm">
+                    <div id="map" style="height:400px;"></div>
+                    <label>Notes:</label>
+                    <input type="textarea" id="diaryNotes" />
+                    <button id="captureSelfie">Selfie</button>
+                    <img id="selfie" style="width:100%" src="" />
+                    <button id="cleanupSelfies">Cleanup</button>
+                    <button id="saveDiaryNote">Save</button>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#home" data-icon="user">My Contacts</a></li>
+                        <li><a href="#phonebook" data-icon="plus">Phonebook</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div> 
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+    `<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFMcoB4SaHlOeawxaRBJpOLyt7VR8seBs&callback=initMap" async defer></script>`
+</body>
+
+</html>
