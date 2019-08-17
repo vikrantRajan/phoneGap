@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<plugin id="cordova-plugin-ios-contacts-permissions" version="1.2.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>iOS Permissions</name>
+    <author>Nicolás Naso</author>
+    <description>Cordova / PhoneGap Plugin Permission Settings for NSContactsUsageDescription in iOS 11 by adding a declaration to the Info.plist file</description>
+    <keywords>cordova, ios, app, security, permissions, nscontactsusagedescription</keywords>
+    <license>MIT</license>
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+        </engines>
+        <platform name="ios">
+            <preference name="CONTACTS_USAGE_DESCRIPTION" default="This app needs contact access"/>
+            <config-file target="*-Info.plist" parent="NSContactsUsageDescription">
+                <string>$CONTACTS_USAGE_DESCRIPTION</string>
+            </config-file>            
+        </platform>
+    </plugin>
