@@ -1,0 +1,39 @@
+{
+  "name": "cordova-plugin-ios-contacts-permissions",
+  "version": "1.0.0",
+  "author": "Nicolás Naso <niconaso@gmail.com>",
+  "description": "Cordova / PhoneGap Plugin Permission Settings for NSContactsUsageDescription in iOS 11 by adding a declaration to the Info.plist file",
+  "cordova": {
+    "id": "cordova-plugin-ios-contacts-permissions",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niconaso/cordova-plugin-ios-contacts-permissions.git"
+  },
+  "keywords": [
+    "cordova",
+    "ios",
+    "ios10",
+    "ios11",
+    "app",
+    "security",
+    "permissions",
+    "nscontactsusageDescription",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/niconaso/cordova-plugin-ios-contacts-permissions/issues"
+  },
+  "homepage": "https://github.com/niconaso/cordova-plugin-ios-contacts-permissions#readme"
+}
